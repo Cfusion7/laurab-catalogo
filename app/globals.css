@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+/* Paleta Laura B — tomada del logo (negro, blanco, fucsia) y del menú (rubores) */
+@theme {
+  --color-tinta: #000000;
+  --color-fucsia: #e53389;
+  --color-frambuesa: #a8155a;
+  --color-rubor: #fce8ef;
+  --color-polvo: #f3b9cd;
+  --color-humo: #6b5f66;
+  --color-linea: #eadde2;
+
+  --font-display: "Bodoni Moda Variable", "Bodoni 72", Didot, Georgia, serif;
+  --font-sans: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: var(--color-tinta);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  letter-spacing: -0.01em;
+}
+
+/* Barra de categorías sin scrollbar visible */
+.sin-scroll {
+  scrollbar-width: none;
+}
+.sin-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-fucsia);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Entrada de la portada: una sola secuencia */
+@keyframes subir {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.entrada {
+  animation: subir 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
